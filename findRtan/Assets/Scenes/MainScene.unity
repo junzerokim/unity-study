@@ -338,7 +338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeText: {fileID: 1179753825}
-  card: {fileID: 4369640114664344374, guid: 98d3a24743e56439e9307157d88bf4ad, type: 3}
+  card: {fileID: 4434236845296893267, guid: 98d3a24743e56439e9307157d88bf4ad, type: 3}
 --- !u!4 &745319265
 Transform:
   m_ObjectHideFlags: 0
