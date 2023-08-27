@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public GameObject card;
     float time;
     public static GameManager I;
+    public GameObject firstCard;
+    public GameObject secondCard;
     
     void Awake()
     {

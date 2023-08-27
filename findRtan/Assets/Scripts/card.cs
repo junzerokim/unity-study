@@ -17,7 +17,7 @@ public class card : MonoBehaviour
         
     }
 
-    public void open()
+    public void openCard()
     {
         anim.SetBool("isOpen", true);
         transform.Find("front").gameObject.SetActive(true);
