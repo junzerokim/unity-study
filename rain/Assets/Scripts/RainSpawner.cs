@@ -16,11 +16,11 @@ public class RainSpawner : MonoBehaviour
     }
 
     private void StartSpawning() {
-        StartCoroutine(SpawnRainRoutine());
+        StartCoroutine("SpawnRainRoutine");
     }
 
-    private void StopSpawning() {
-        StopCoroutine(SpawnRainRoutine());
+    public void StopSpawning() {
+        StopCoroutine("SpawnRainRoutine");
     }
 
     IEnumerator SpawnRainRoutine() {
@@ -42,5 +42,12 @@ public class RainSpawner : MonoBehaviour
         Vector3 position = new Vector3(posX, 6, 0);
         int index = Random.Range(0, rains.Length);
         Instantiate(rains[index], position, Quaternion.identity);
+    }
+
+    public void DecreaseRainInterval() {
+        rainInterval -= 0.2f;
+        if (rainInterval < 0.2f) {
+            rainInterval = 0.1f;
+        }
     }
 }

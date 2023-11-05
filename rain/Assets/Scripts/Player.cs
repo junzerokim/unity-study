@@ -19,16 +19,22 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftArrow)) {
-            transform.position += Vector3.left * moveSpeed * Time.deltaTime;
-            animator.SetBool("isRunning", true);
-            spriteRenderer.flipX = true;
-        } else if (Input.GetKey(KeyCode.RightArrow)) {
-            transform.position += Vector3.right * moveSpeed * Time.deltaTime;
-            animator.SetBool("isRunning", true);
-            spriteRenderer.flipX = false;
+        if (!GameManager.instance.isGameOver) {
+            if (Input.GetKey(KeyCode.LeftArrow)) {
+                transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+                animator.SetBool("isRunning", true);
+                spriteRenderer.flipX = true;
+            } else if (Input.GetKey(KeyCode.RightArrow)) {
+                transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+                animator.SetBool("isRunning", true);
+                spriteRenderer.flipX = false;
+            }
         } else {
             animator.SetBool("isRunning", false);
         }
+    }
+
+    public void GetRain() {
+        GetComponent<SpriteRenderer>().color = new Color(0.64f, 0.64f, 0.64f);
     }
 }

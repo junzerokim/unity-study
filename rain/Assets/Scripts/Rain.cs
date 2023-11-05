@@ -24,15 +24,18 @@ public class Rain : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Ground") {
-            Instantiate(particle, transform.position, Quaternion.identity);
-            GetComponent<AudioSource>().Play();
-            GetComponent<Renderer>().enabled = false;
-            Destroy(gameObject, 0.5f);
+            GameManager.instance.AddScore();
         } else if (other.gameObject.tag == "Player") {
-            Instantiate(particle, transform.position, Quaternion.identity);
-            GetComponent<AudioSource>().Play();
-            GetComponent<Renderer>().enabled = false;
-            Destroy(gameObject, 0.5f);
+            GameManager.instance.SetGameOver();
+            Player player = other.gameObject.GetComponent<Player>();
+            player.GetRain();
+        } else if (other.gameObject.tag == "Rain") {
+            return;
         }
+        Instantiate(particle, transform.position, Quaternion.identity);
+        GetComponent<AudioSource>().Play();
+        GetComponent<Renderer>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
+        Destroy(gameObject, 0.5f);
     }
 }
