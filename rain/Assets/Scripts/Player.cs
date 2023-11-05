@@ -28,6 +28,8 @@ public class Player : MonoBehaviour
                 transform.position += Vector3.right * moveSpeed * Time.deltaTime;
                 animator.SetBool("isRunning", true);
                 spriteRenderer.flipX = false;
+            } else {
+                animator.SetBool("isRunning", false);
             }
         } else {
             animator.SetBool("isRunning", false);
