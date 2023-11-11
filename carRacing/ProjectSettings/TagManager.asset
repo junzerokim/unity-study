@@ -44,6 +44,9 @@ TagManager:
   - name: Background
     uniqueID: 2914833477
     locked: 0
+  - name: Obstacle
+    uniqueID: 2565213219
+    locked: 0
   - name: Car
     uniqueID: 943427117
     locked: 0
