@@ -35,4 +35,11 @@ public class ObstacleSpawner : MonoBehaviour
         Vector3 position = new Vector3(obstacles[index].transform.position.x, transform.position.y, 0);
         Instantiate(obstacles[index], position, Quaternion.identity);
     }
+
+    public void DecreaseObstacleInterval() {
+        obstacleInterval -= 0.2f;
+        if (obstacleInterval < 0.5f) {
+            obstacleInterval = 0.5f;
+        }
+    }
 }

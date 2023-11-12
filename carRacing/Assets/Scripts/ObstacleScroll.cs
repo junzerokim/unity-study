@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ObstacleScroll : MonoBehaviour
 {
-    public float moveSpeed = 5f;
     private float minPosY = -10f;
     // Start is called before the first frame update
     void Start()
@@ -15,9 +14,10 @@ public class ObstacleScroll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += Vector3.down * moveSpeed * Time.deltaTime;
+        transform.position += Vector3.down * GameManager.instance.moveSpeed * Time.deltaTime;
         if (transform.position.y <= minPosY) {
             Destroy(gameObject);
+            GameManager.instance.AddObstacleCount();
         }
     }
 }
