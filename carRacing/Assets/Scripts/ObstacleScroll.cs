@@ -14,10 +14,12 @@ public class ObstacleScroll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += Vector3.down * GameManager.instance.moveSpeed * Time.deltaTime;
-        if (transform.position.y <= minPosY) {
-            Destroy(gameObject);
-            GameManager.instance.AddObstacleCount();
+        if (GameManager.instance.isGameOver == false) {
+            transform.position += Vector3.down * GameManager.instance.moveSpeed * Time.deltaTime;
+            if (transform.position.y <= minPosY) {
+                Destroy(gameObject);
+                GameManager.instance.AddObstacleCount();
+            }
         }
     }
 }

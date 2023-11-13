@@ -17,10 +17,12 @@ public class Car : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftArrow)) {
-            transform.position += Vector3.left * moveSpeed * Time.deltaTime;
-        } else if (Input.GetKey(KeyCode.RightArrow)) {
-            transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+        if (GameManager.instance.isGameOver == false) {
+            if (Input.GetKey(KeyCode.LeftArrow)) {
+                transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+            } else if (Input.GetKey(KeyCode.RightArrow)) {
+                transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+            }
         }
     }
 
@@ -29,6 +31,12 @@ public class Car : MonoBehaviour
             if (cameraShake != null) {
                 cameraShake.Play();
             }
+            Crashed();
+            GameManager.instance.SetGameOver();
         }
+    }
+
+    private void Crashed() {
+        gameObject.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f);
     }
 }
