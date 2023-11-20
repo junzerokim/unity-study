@@ -332,6 +332,7 @@ GameObject:
   - component: {fileID: 463980503}
   - component: {fileID: 463980506}
   - component: {fileID: 463980507}
+  - component: {fileID: 463980508}
   m_Layer: 0
   m_Name: Panda
   m_TagString: Untagged
@@ -473,6 +474,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.89597607, y: 2.4208646}
   m_EdgeRadius: 0
+--- !u!114 &463980508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463980502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e6d3b07ef9ce41518ec80880e9fe162, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
