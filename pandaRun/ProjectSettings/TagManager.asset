@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Coin
   layers:
   - Default
   - TransparentFX
@@ -47,6 +48,9 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 2563144245
+    locked: 0
+  - name: Object
+    uniqueID: 2746723103
     locked: 0
   - name: Charactor
     uniqueID: 1223716555
