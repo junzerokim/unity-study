@@ -6,8 +6,10 @@ public class ObjectSpawner : MonoBehaviour
 {
     [SerializeField]
     private GameObject coin;
-    [SerializeField]
+
+    private float[] arrCoinPosY = { -2.5f, -0.75f, 1f };
     private float objectInterval = 0.2f;
+    private int coinCount = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,13 +34,37 @@ public class ObjectSpawner : MonoBehaviour
 
     private void SpawnObject() {
         // SpawnCoin
-        SpawnCoin();
+        int coinPosYIndex = GetCoinPosYIndex();
+        SpawnCoin(coinPosYIndex);
 
         // SpawnObstacle
     }
 
-    private void SpawnCoin() {
-        Vector3 position = new Vector3(transform.position.x, transform.position.y, transform.position.y);
+    private int GetCoinPosYIndex() {
+        if (coinCount < 15) {
+            return 0;
+        }
+        
+        if (coinCount % 10 == 9) { // 9, 19, 29, 39
+            // middle
+            return 1;
+        } else if (coinCount % 10 == 0) { // 0, 10, 20, 30
+            // high
+            return 2;
+        } else if (coinCount % 10 == 1) { // 1, 11, 21, 31
+            // middle
+            return 1;
+        } else {
+            // low
+            return 0;
+        }
+    }
+
+    private void  SpawnCoin(int index) {
+        // float posY = Random.Range(-2.5f, 0.5f);
+        float posY = arrCoinPosY[index];
+        Vector3 position = new Vector3(transform.position.x, posY, transform.position.y);
         Instantiate(coin, position, Quaternion.identity);
+        coinCount++;
     } 
 }
