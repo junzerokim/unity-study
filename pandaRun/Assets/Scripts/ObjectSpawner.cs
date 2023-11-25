@@ -6,6 +6,8 @@ public class ObjectSpawner : MonoBehaviour
 {
     [SerializeField]
     private GameObject coin;
+    [SerializeField]
+    private GameObject obstacle;
 
     private float[] arrCoinPosY = { -2.5f, -0.75f, 1f };
     private float objectInterval = 0.2f;
@@ -38,6 +40,9 @@ public class ObjectSpawner : MonoBehaviour
         SpawnCoin(coinPosYIndex);
 
         // SpawnObstacle
+        if (coinPosYIndex == arrCoinPosY.Length - 1) {
+            SpawnObstacle();
+        }
     }
 
     private int GetCoinPosYIndex() {
@@ -60,11 +65,16 @@ public class ObjectSpawner : MonoBehaviour
         }
     }
 
-    private void  SpawnCoin(int index) {
+    private void SpawnCoin(int index) {
         // float posY = Random.Range(-2.5f, 0.5f);
         float posY = arrCoinPosY[index];
         Vector3 position = new Vector3(transform.position.x, posY, transform.position.y);
         Instantiate(coin, position, Quaternion.identity);
         coinCount++;
     } 
+
+    private void SpawnObstacle() {
+        Vector3 position = new Vector3(transform.position.x, arrCoinPosY[0], transform.position.y);
+        Instantiate(obstacle, position, Quaternion.identity);
+    }
 }
