@@ -7,9 +7,10 @@ public class ObjectSpawner : MonoBehaviour
     [SerializeField]
     private GameObject coin;
     [SerializeField]
-    private GameObject obstacle;
+    private GameObject[] obstacles;
 
     private float[] arrCoinPosY = { -2.5f, -0.75f, 1f };
+    private float[] arrObstaclePosY = { -2.5f, -1.3f };
     private float objectInterval = 0.2f;
     private int coinCount = 0;
     // Start is called before the first frame update
@@ -74,7 +75,11 @@ public class ObjectSpawner : MonoBehaviour
     } 
 
     private void SpawnObstacle() {
-        Vector3 position = new Vector3(transform.position.x, arrCoinPosY[0], transform.position.y);
-        Instantiate(obstacle, position, Quaternion.identity);
+        int obstaclePosYIndex = Random.Range(0, arrObstaclePosY.Length);
+        float posY = arrObstaclePosY[obstaclePosYIndex];
+        Vector3 position = new Vector3(transform.position.x, posY, transform.position.y);
+
+        int obstacleIndex = Random.Range(0, obstacles.Length);
+        Instantiate(obstacles[obstacleIndex], position, Quaternion.identity);
     }
 }

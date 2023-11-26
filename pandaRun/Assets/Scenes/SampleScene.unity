@@ -153,7 +153,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coin: {fileID: 6858151439501858931, guid: 8aad30d01bdf0434eb47ffb389ff8ebe, type: 3}
-  obstacle: {fileID: 6866054271711197106, guid: 33b77165f7c644521b5e4d26879a38a2, type: 3}
+  obstacles:
+  - {fileID: 6866054271711197106, guid: 33b77165f7c644521b5e4d26879a38a2, type: 3}
+  - {fileID: 558451683163119494, guid: ba9cd899c8ce24c219f6fc147e8867a7, type: 3}
 --- !u!4 &174779188
 Transform:
   m_ObjectHideFlags: 0
