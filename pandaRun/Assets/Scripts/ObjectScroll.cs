@@ -21,4 +21,15 @@ public class ObjectScroll : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.tag == "Player") {
+            if (gameObject.tag == "Coin") {
+                GameManager.instance.AddScore();
+                Destroy(gameObject);
+            } else if (gameObject.tag == "Obstacle") {
+                Debug.Log("Obstacle");
+            }
+        }
+    }
 }
