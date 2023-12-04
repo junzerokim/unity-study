@@ -16,9 +16,11 @@ public class ObjectScroll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += Vector3.left * moveSpeed * Time.deltaTime;
-        if (transform.position.x <= minPosX) {
-            Destroy(gameObject);
+        if (GameManager.instance.isGameOver == false) {
+            transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+            if (transform.position.x <= minPosX) {
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -28,7 +30,7 @@ public class ObjectScroll : MonoBehaviour
                 GameManager.instance.AddScore();
                 Destroy(gameObject);
             } else if (gameObject.tag == "Obstacle") {
-                Debug.Log("Obstacle");
+                GameManager.instance.SetGameOver();
             }
         }
     }

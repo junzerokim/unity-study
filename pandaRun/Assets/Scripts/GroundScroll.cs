@@ -17,7 +17,9 @@ public class GroundScroll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 offset = new Vector2(offsetX * Time.deltaTime, 0);
-        material.mainTextureOffset += offset;
+        if (GameManager.instance.isGameOver == false) {
+            Vector2 offset = new Vector2(offsetX * Time.deltaTime, 0);
+            material.mainTextureOffset += offset;
+        }
     }
 }

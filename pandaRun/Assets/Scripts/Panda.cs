@@ -32,14 +32,16 @@ public class Panda : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    if (Input.GetKey(KeyCode.UpArrow) && isGrounded) {
-      Jump();
-    } else if (Input.GetKey(KeyCode.DownArrow) && isGrounded) {
-      SlideBegin();   
-    }
+    if (GameManager.instance.isGameOver == false) {
+      if (Input.GetKey(KeyCode.UpArrow) && isGrounded) {
+        Jump();
+      } else if (Input.GetKey(KeyCode.DownArrow) && isGrounded) {
+        SlideBegin();   
+      }
 
-    if (isSliding && Time.time - slideStartTime >= slideDuration) {
-      SlideEnd();
+      if (isSliding && Time.time - slideStartTime >= slideDuration) {
+        SlideEnd();
+      }
     }
   }
 
@@ -83,5 +85,13 @@ public class Panda : MonoBehaviour
       isGrounded = true;
       animator.SetBool("isJumping", false);
     }
+  }
+  
+  public void SetGameOver() {
+    Jump();
+
+    animator.enabled = false;
+    boxCollider.enabled = false;
+    Destroy(gameObject, 2f);
   }
 }
