@@ -28,5 +28,14 @@ public class Player : MonoBehaviour
          } else {
             animator.SetBool("isWalking", false);
          }
+
+         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+         Vector3 direction = mousePos - transform.position;
+         Vector3 currentScale = transform.localScale;
+         if (direction.x > 0) {
+            transform.localScale = new Vector3(Mathf.Abs(currentScale.x), currentScale.y, currentScale.z);
+         } else {
+            transform.localScale = new Vector3(-Mathf.Abs(currentScale.x), currentScale.y, currentScale.z);
+         }
     }
 }
