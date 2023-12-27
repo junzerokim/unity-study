@@ -47,6 +47,9 @@ TagManager:
   - name: Player
     uniqueID: 1067092071
     locked: 0
+  - name: Enemies
+    uniqueID: 1756946981
+    locked: 0
   - name: HPBar
     uniqueID: 4157223485
     locked: 0

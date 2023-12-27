@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     private Animator animator;
     private HPBar hpBar;
     [SerializeField]
-    private float moveSpeed = 10f;
+    private float moveSpeed = 3f;
     // Start is called before the first frame update
     void Start()
     {
