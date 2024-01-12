@@ -31,7 +31,5 @@ public class Enemy : MonoBehaviour
             transform.localScale = new Vector3(Mathf.Abs(currScale.x), currScale.y, currScale.z);
             hpBar.transform.localScale = new Vector3(Mathf.Abs(currHpBarScale.x), currHpBarScale.y, currHpBarScale.z);
         }
-
-        hpBar.SetHP(2f, 10f);
     }
 }
